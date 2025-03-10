@@ -1,0 +1,20 @@
+<div class="task row g-0 border rounded mb-2 p-2">
+    <!-- Fecha de la tarea -->
+    <div class="col-2 text-center m-auto">
+        <span>{{task.date | date: 'dd/MM/YYYY'}}</span>
+    </div>
+    <!-- Descripción de la tarea -->
+    <div class="m-auto text-truncate" [ngClass]="{
+        'col-10 text-decoration-line-through': task.completed,
+        'col-8': !task.completed
+    }" [title]="task.description">
+        <span>{{task.description}}</span>
+    </div>
+    @if(!task.completed){
+        <!-- Acciones de las tareas -->
+        <div class="col-2 text-end">
+            <i class="task__icon bi bi-check-lg text-success" (click)="completeTask()"></i>
+            <i class="task__icon bi bi-trash-fill text-danger" (click)="removeTask()"></i>
+        </div>
+    }
+</div>

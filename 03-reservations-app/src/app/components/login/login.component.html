@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-12">
+
+        <form [formGroup]="formGroup" (ngSubmit)="login()">
+
+            <div class="row">
+                <!-- Email -->
+                <div class="col-md-5 col-12">
+                    <label for="email" class="form-label">{{'email' | translate}}</label>
+                    <input type="email" id="email" class="form-control" formControlName="email">
+                </div>
+                <!-- Password -->
+                <div class="col-md-5 col-12">
+                    <label for="password" class="form-label">{{'password' | translate}}</label>
+                    <input type="password" id="password" class="form-control" formControlName="password">
+                </div>
+                <!-- Boton login -->
+                <div class="col-md-2 col-12 d-grid gap-2 align-self-end">
+                    <button class="btn btn-primary" [disabled]="formGroup.invalid">{{'login' | translate}}</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

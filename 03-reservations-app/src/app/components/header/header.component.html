@@ -1,0 +1,54 @@
+<header class="row align-items-center mb-4 border-bottom p-3">
+
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg col-12">
+      <div class="container-fluid">
+          <!-- Brand Logo -->
+          <a class="navbar-brand" routerLink="add-booking">
+              <img src="/img/Logo.png" width="140" height="140" alt="logo" class="img-fluid">
+          </a>
+
+          <!-- Toggler Button for Mobile -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar Links -->
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+              <ul class="navbar-nav">
+                  <!-- Add Booking Link -->
+                  <li class="nav-item">
+                      <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="add-booking">{{'add.booking' | translate}}</a>
+                  </li>
+
+                  <!-- Events Link (Conditional) -->
+                  @if(isAuthenticated$ | async){
+                      <li class="nav-item">
+                          <a class="nav-link" routerLinkActive="active" routerLink="events-calendar">{{'events' | translate}}</a>
+                      </li>
+                  }
+              </ul>
+
+              <!-- Language and Login/Logout Section -->
+              <ul class="navbar-nav">
+                  <!-- Language Options as Text -->
+                  @for(language of languages; track language){
+                      <li class="nav-item">
+                          <a class="nav-link" (click)="changeLanguage(language)">{{ language.toUpperCase() }}</a>
+                      </li>
+                  }
+
+                  <!-- Login/Logout Text Link -->
+                  <li class="nav-item">
+                      @if(isAuthenticated$ | async){
+                          <a class="nav-link" routerLink="logout">{{'logout' | translate}}</a>
+                      } @else{
+                          <a class="nav-link" routerLink="login">{{'login' | translate}}</a>
+                      }
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+</header>

@@ -1,0 +1,23 @@
+{
+    "name": "Name",
+    "date": "Date",
+    "haircare": "Service",
+    "haircut": "Haircut",
+    "hair-coloring": "Hair coloring",
+    "hair-washing": "Hair washing",
+    "hair-straightening": "Hair straightening",
+    "add.booking": "Add booking",
+    "success": "Success",
+    "required": "Required",
+    "hour": "Hour",
+    "events": "Events",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "add.booking.success": "Booking added",
+    "login.success": "Logged successfully",
+    "login.error": "Error trying to login",
+    "logout.success": "Logout successfully",
+    "error": "Error",
+    "booking.exists": "The reservation already exists at that date and time"    
+}

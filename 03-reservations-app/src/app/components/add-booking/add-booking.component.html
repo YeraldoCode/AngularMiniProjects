@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-12">
+
+        <form [formGroup]="formGroup" (ngSubmit)="addBooking()">
+
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <label for="name" class="form-label">{{'name' | translate}}*</label>
+                    <input type="text" class="form-control" id="name" formControlName="name" [ngClass]="{
+                        'is-valid': controlName && controlName.dirty && !controlName.invalid,
+                        'is-invalid': controlName && controlName.dirty && controlName.invalid
+                    }">
+                    <div class="invalid-feedback">
+                        @if(controlName && controlName.errors){
+                            @if(controlName.errors['required']){
+                                <span>{{'required' | translate}}</span>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="haircare"  class="form-label">{{'haircare' | translate}}*</label>
+                    <select id="haircare" class="form-control" formControlName="haircare" [ngClass]="{
+                        'is-valid': controlHaircare && !controlHaircare.invalid,
+                        'is-invalid': controlHaircare && controlHaircare.invalid
+                    }">
+                        @for(haircare of haircares; track haircare.value){
+                            <option [value]="haircare.value">{{haircare.value | translate}}</option>
+                        }
+                    </select>
+                    <div class="invalid-feedback">
+                        @if(controlHaircare && controlHaircare.errors){
+                            @if(controlHaircare.errors['required']){
+                                <span>{{'required' | translate}}</span>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-6 col-12">
+                    <label for="date" class="form-label">{{'date' | translate}}*</label>
+                    <input type="date" class="form-control" id="date" formControlName="date"[ngClass]="{
+                        'is-valid': controlDate && !controlDate.invalid,
+                        'is-invalid': controlDate && controlDate.invalid
+                    }">
+                    <div class="invalid-feedback">
+                        @if(controlDate && controlDate.errors){
+                            @if(controlDate.errors['required']){
+                                <span>{{'required' | translate}}</span>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="hour" class="form-label">{{'hour' | translate}}*</label>
+                    <select id="hour" class="form-control" formControlName="time" [ngClass]="{
+                        'is-valid': controlTime && !controlTime.invalid,
+                        'is-invalid': controlTime && controlTime.invalid
+                    }">
+                        @for(hour of hours; track hour.value){
+                            <option [value]="hour.value">{{hour.value}}</option>
+                        }
+                    </select>
+                    <div class="invalid-feedback">
+                        @if(controlTime && controlTime.errors){
+                            @if(controlTime.errors['required']){
+                                <span>{{'required' | translate}}</span>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 text-end">
+                    <button class="btn btn-primary" [disabled]="formGroup.invalid">{{'add.booking' | translate}}</button>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>

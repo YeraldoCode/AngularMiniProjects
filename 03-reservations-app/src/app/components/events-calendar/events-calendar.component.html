@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-12">
+
+        <!-- Badges haircares -->
+        <div class="row">
+            <div class="col-12 text-center mt-2 mb-2">
+
+                @if(haircares$ | async; as haircares){
+                    @for(haircare of haircares; track haircare.value){
+                        <div class="badge rounded-pill me-2" [ngStyle]="{
+                            'background-color': haircare.color
+                        }">
+                            <span class="h6">{{haircare.value | translate}}</span>
+                       </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+        <!-- Calendario de eventos -->
+        <div class="row">
+            <div class="col-12">
+                <full-calendar [options]="calendarOptions" [events]="events$ | async" />
+            </div>
+        </div>
+
+
+    </div>
+</div>

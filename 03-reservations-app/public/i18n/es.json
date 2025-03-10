@@ -1,0 +1,23 @@
+{
+    "name": "Nombre",
+    "date": "Fecha",
+    "haircare": "Servicio",
+    "haircut": "Corte de pelo",
+    "hair-coloring": "Teñido de pelo",
+    "hair-washing": "Lavado de pelo",
+    "hair-straightening": "Alisado de pelo",
+    "add.booking": "Añadir reserva",
+    "success": "Éxito",
+    "required": "Requerido",
+    "hour": "Hora",
+    "events": "Eventos",
+    "email": "Email",
+    "password": "Contraseña",
+    "login": "Login",
+    "add.booking.success": "Reserva añadida",
+    "login.success": "Logueado con éxito",
+    "login.error": "Error al loguearse",
+    "logout.success": "Logout con éxito",
+    "error": "Error",
+    "booking.exists": "La reserva ya existe en esa fecha y hora"
+}

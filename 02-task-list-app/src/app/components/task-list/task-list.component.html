@@ -1,0 +1,74 @@
+<div class="row mt-2 mb-2">
+    <div class="col-12">
+
+        <div class="row">
+            <div class="col-12">
+                <h1>Tareas pendientes</h1>
+
+                <!-- Recorremos las tareas -->
+                @for(task of taskListPending; track task; let index = $index){
+                <!-- Creamos un task pasandole el propio task y el indice -->
+                <!-- Tambien estaremos pendientes de los eventos -->
+                <app-task [task]="task" [index]="index" (remove)="removeTask($event)"
+                    (complete)="completeTask($event)" />
+                } @empty {
+                <span class="d-block">¡Felicidades! No tienes tareas pendientes</span>
+                }
+
+                @if(showInputTask){
+                <!-- Input para añadir una tarea -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" #taskInput>
+                    <button class="btn btn-primary" type="button" (click)="createTask(taskInput.value)">
+                        <i class="bi bi-plus"></i>
+                        <span>Añadir</span>
+                    </button>
+                </div>
+                } @else{
+                <!-- Boton para mostrar una tarea -->
+                <button class="btn btn-primary mb-2 mt-2" (click)="showInputTextTask()">
+                    <i class="bi bi-plus"></i>
+                    <span>Añadir tarea</span>
+                </button>
+                }
+
+                @if(errorInputTask){
+                <!-- Mensaje de error -->
+                <div class="alert alert-danger" role="alert">
+                    La tarea no puede estar vacia
+                </div>
+                }
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h1>Tareas completadas</h1>
+
+                <!-- Boton para mostrar/ocultar tareas completadas -->
+                <button class="btn btn-primary mt-2 mb-2" (click)="toggleShowCompleted()">
+                    @if(showCompleted){
+                    <i class="bi bi-eye-slash me-1"></i>
+                    <span>Ocultar tareas completadas</span>
+                    } @else{
+                    <i class="bi bi-eye me-1"></i>
+                    <span>Mostrar tareas completadas</span>
+                    }
+                </button>
+
+                @if(showCompleted){
+                <!-- Recorremos las tareas completadas -->
+                @for(task of taskListCompleted; track task){
+                <!-- Creamos un task pasandole el propio task -->
+                <!-- En este caso, no es necesario pasarle el index ni estar pendiente de los eventos -->
+                <app-task [task]="task" />
+                } @empty {
+                <span class="d-block">No tienes tareas completadas</span>
+                }
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
